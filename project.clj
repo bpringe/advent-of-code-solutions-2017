@@ -7,4 +7,5 @@
   :main ^:skip-aot advent-of-code.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
-  :plugins [[lein-gorilla "0.4.0"]])
+  :plugins [[lein-gorilla "0.4.0"]]
+  :resource-paths ["resources"])
