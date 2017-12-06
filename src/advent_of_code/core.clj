@@ -67,6 +67,22 @@
        (map get-quotient)
        (reduce +)))
 
+;;=====================================
+;;============ Problem 3 ==============
+;;=====================================
+
+;; The below formula is to get x coordinates. For y, replace sin with cos.
+;; Have to inverse y coordinates (or change formula slightly) since formula is for clockwise spiral. 
+;; a(1) = 0, a(n) = a(n-1) + sin(mod(floor(sqrt(4*(n-2)+1)),4)*Pi/2)
+;; https://oeis.org/A174344
+
+(defn get-x
+  [n]
+  (if (= n 1)
+    0
+    (let [k (mod (Math/floor (Math/sqrt (+ 1 (* 4 (- n 2))))) 4)]
+      (Math/round (+ (get-x (- n 1)) (Math/sin (/ (* k Math/PI) 2)))))))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
